@@ -1,9 +1,14 @@
 import { UsersListPage } from "./components/UsersListPage";
+import { QueryClient, QueryClientProvider } from "react-query";
+
+const queryClient = new QueryClient();
 
 const App = () => {
   return (
     <div className="App">
-      <UsersListPage />
+      <QueryClientProvider client={queryClient}>
+        <UsersListPage />
+      </QueryClientProvider>
     </div>
   );
 };
