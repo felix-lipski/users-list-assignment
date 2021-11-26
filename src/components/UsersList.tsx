@@ -1,8 +1,6 @@
-export const UsersList = ({
-  users,
-}: {
-  users: { username: string; name: string; id: number }[];
-}) => {
+import { User } from "../common/types";
+
+export const UsersList = ({ users }: { users: User[] }) => {
   return (
     <ol>
       {users?.map((user) => (

@@ -1,4 +1,6 @@
+import { useState } from "react";
 import { useQuery } from "react-query";
+import { searchBy } from "../common/utils";
 import { UsersList } from "./UsersList";
 
 const useFindUsers = () =>
@@ -10,11 +12,16 @@ const useFindUsers = () =>
 
 export const UsersListPage = () => {
   const { data } = useFindUsers();
+  const [searchTerm, setSearchTerm] = useState("");
   return (
     <div className="App">
       <h1>Users List</h1>
-      <input />
-      <UsersList users={data} />
+      <input
+        placeholder="Search by user name..."
+        value={searchTerm}
+        onChange={(event) => setSearchTerm(event.target.value)}
+      />
+      <UsersList users={searchBy(data, searchTerm, "name")} />
     </div>
   );
 };
