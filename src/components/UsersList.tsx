@@ -5,7 +5,7 @@ export const UsersList = ({ users }: { users: User[] }) => {
     <ol id="users" aria-labelledby="users-heading">
       {users?.map((user) => (
         <li key={user.id}>
-          {user.name} @{user.username}
+          {user.name} <span>@{user.username}</span>
         </li>
       ))}
     </ol>

@@ -1,0 +1,38 @@
+.users-list {
+  margin: auto;
+  width: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h1 {
+    font-weight: 400;
+    font-size: 40px;
+  }
+
+  input {
+    height: 2em;
+    width: 100%;
+    font-size: 16px;
+    padding: 0.25em 0.5em;
+  }
+
+  input::placeholder {
+    color: lightsteelblue;
+  }
+
+  ol {
+    padding-inline-start: 0px;
+    width: 87%;
+    li::marker {
+      color: lightsteelblue;
+    }
+    li {
+      padding: 0.2em 0.5em;
+      span {
+        color: lightsteelblue;
+        margin-left: 0.5em;
+      }
+    }
+  }
+}
