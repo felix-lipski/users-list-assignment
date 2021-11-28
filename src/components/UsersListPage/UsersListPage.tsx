@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { useFindUsers } from "../common/hooks/useFindUsers";
-import { searchBy } from "../common/utils";
+import { useFindUsers } from "../../common/hooks/useFindUsers";
+import { searchBy } from "../../common/utils";
 import { UsersList } from "./UsersList";
 import styles from "./UsersListPage.module.scss";
 

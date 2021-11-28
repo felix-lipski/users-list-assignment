@@ -1,4 +1,4 @@
-import { User } from "../common/types";
+import { User } from "../../common/types";
 
 export const UsersList = ({ users }: { users: User[] }) => {
   return (
