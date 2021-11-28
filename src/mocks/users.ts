@@ -230,7 +230,3 @@ export const mockUsers = [
     },
   },
 ];
-
-export const useFindUsers = () => {
-  return { data: mockUsers };
-};
