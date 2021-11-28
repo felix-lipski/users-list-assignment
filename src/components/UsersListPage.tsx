@@ -4,7 +4,7 @@ import { searchBy } from "../common/utils";
 import { UsersList } from "./UsersList";
 
 export const UsersListPage = () => {
-  const { data } = useFindUsers();
+  const { data, isLoading } = useFindUsers();
   const [searchTerm, setSearchTerm] = useState("");
   return (
     <div className="App">
@@ -16,7 +16,11 @@ export const UsersListPage = () => {
         value={searchTerm}
         onChange={(event) => setSearchTerm(event.target.value)}
       />
-      <UsersList users={searchBy(data, searchTerm, "name")} />
+      {!isLoading ? (
+        <UsersList users={searchBy(data, searchTerm, "name")} />
+      ) : (
+        <p role="status">Loading...</p>
+      )}
     </div>
   );
 };
