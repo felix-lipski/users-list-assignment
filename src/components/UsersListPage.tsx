@@ -13,6 +13,7 @@ export const UsersListPage = () => {
         placeholder="Search by user name..."
         id="search"
         name="search"
+        aria-label="search"
         value={searchTerm}
         onChange={(event) => setSearchTerm(event.target.value)}
       />
