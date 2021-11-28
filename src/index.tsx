@@ -2,15 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import { UsersListPage } from "./components/UsersListPage/UsersListPage";
-import { QueryClient, QueryClientProvider } from "react-query";
-
-const queryClient = new QueryClient();
+import { ApiProvider } from "@reduxjs/toolkit/query/react";
+import { usersApi } from "./redux/usersApi";
 
 ReactDOM.render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
+    <ApiProvider api={usersApi}>
       <UsersListPage />
-    </QueryClientProvider>
+    </ApiProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

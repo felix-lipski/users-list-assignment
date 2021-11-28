@@ -1,15 +1,15 @@
+import { ApiProvider } from "@reduxjs/toolkit/dist/query/react";
 import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { QueryClient, QueryClientProvider } from "react-query";
+import { usersApi } from "../../redux/usersApi";
 import { UsersListPage } from "./UsersListPage";
 
 describe("UsersListPage", () => {
-  const queryClient = new QueryClient();
   const renderListPage = () =>
     render(
-      <QueryClientProvider client={queryClient}>
+      <ApiProvider api={usersApi}>
         <UsersListPage />
-      </QueryClientProvider>
+      </ApiProvider>
     );
 
   it("should inform the user that the list is loading", () => {

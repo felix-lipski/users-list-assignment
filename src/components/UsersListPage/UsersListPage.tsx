@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { useFindUsers } from "../../common/hooks/useFindUsers";
 import { searchBy } from "../../common/utils";
+import { useFindUsersQuery } from "../../redux/usersApi";
 import { UsersList } from "./UsersList";
 import styles from "./UsersListPage.module.scss";
 
 export const UsersListPage = () => {
-  const { data, isLoading } = useFindUsers();
+  const { data, isLoading } = useFindUsersQuery();
   const [searchTerm, setSearchTerm] = useState("");
   return (
     <section className={styles["users-list"]}>
@@ -18,7 +18,7 @@ export const UsersListPage = () => {
         value={searchTerm}
         onChange={(event) => setSearchTerm(event.target.value)}
       />
-      {!isLoading ? (
+      {!isLoading && data ? (
         <UsersList users={searchBy(data, searchTerm, "name")} />
       ) : (
         <p role="status">Loading...</p>
