@@ -18,7 +18,7 @@ export const UsersListPage = () => {
         value={searchTerm}
         onChange={(event) => setSearchTerm(event.target.value)}
       />
-      {!isLoading ? (
+      {!isLoading && !!data ? (
         <UsersList users={searchBy(data, searchTerm, "name")} />
       ) : (
         <p role="status">Loading...</p>
